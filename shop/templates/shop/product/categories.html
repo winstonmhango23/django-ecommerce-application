@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="Categories">
+    <div class="container">
+      <!-- categories row  -->
+      <div class="">
+        <div class="flex justify-center">
+          <div class="title">
+            <ul class="categiri">
+              <li {% if not category %}class="active"{% endif %}>
+                <a href="{% url "shop:product_list" %}">All</a>
+              </li>
+              {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="active"{% endif %}>
+                  <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                 </li>
+                {% endfor %}
+              </ul>
+          </div>
+      </div>
+    </div>
+    </div>
+</div>
+    <!-- end categories row -->
